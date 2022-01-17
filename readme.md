@@ -62,7 +62,7 @@ Usar Optionals até a camada de controllers
 
 //No Controller
 @GetMapping("/{id}")
-    public ResponseEntity<CartaInicio> procuraCarta(@PathVariable UUID id){
+    public ResponseEntity<CartaInicio> findCartaInicio(@PathVariable UUID id){
     	
     	Optional<CartaInicio> cartaInicio;
     	cartaInicio=cartaService.findById(id);
