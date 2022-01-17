@@ -3,7 +3,7 @@
 ## 1. Criação de branch
 Crie a branch baseada no número do seu card no Trello
 
-Código da tarefa + / + nome do card
+Código da tarefa + / + nome-do-card
 ```
 US0xx/nome-do-card
 ```
@@ -14,9 +14,22 @@ US0xx/nome-do-card
 US028/websocket-controller-service-model-sala
 US028/implementar-websocket
 ```
+<br>
 
+**\*OBSERVAÇÃO: Cuide para sempre criar a branch à partir da branch de desenvolvimento**
+<br>
 
-## 2. Padrões de escrita de código
+## 2. Configurações do Banco de Dados
+Banco/versão:  postegresSQL latest (versão mais recente)
+```
+User: lila
+
+Senha: lila
+
+Database: coracoes_da_lila
+```
+
+## 3. Padrões de escrita de código
 
 Apenas os termos relacionados ao negócio devem ser mantidos em *PT-BR, sem abreviações.* Verbos e demais termos não relacionados ao negócio, devem ser mantidos em *EN-US*.
 
@@ -66,7 +79,7 @@ Usar @NonNull ao invés de usar dentro do @Column a propriedade nullable = false
 
 
 
-## 3. Nomeando métodos
+## 4. Nomeando métodos
 
 Ao nomear um método, deve-se garantir que seu nome seja auto explicativo e que o verbo seja condizente com o que o método faz.
 
@@ -108,7 +121,6 @@ public void addContentToDescricao(final String content) {
    this.descricao.append(content).append(QUEBRA_LINHA);  
 }
 ...
-
 ```
 
 ### Build
@@ -125,7 +137,6 @@ private List<Conta> buildConta(final Conta conta, final ContaRequest contaReques
                     .build())
             .collect(Collectors.toList());
 }
-
 ```
 
 ### Set
@@ -138,7 +149,6 @@ public void setDescricao(final Descricao descricao) {
     this.descricao = descricao;
 }
 ...
-
 ```
 
 ### To
@@ -155,7 +165,6 @@ private Conta toEntity(final ContaRequest request) {
         .build();  
 }
 ...
-
 ```
 
 ### Save
@@ -172,10 +181,9 @@ O método save poderá ser usado para chamar métodos auxiliares de inserção (
 public Conta save(final ContaRequest request) {
     return isNull(request.getId()) ? insert(request) : update(request);
 }
-
 ```
 
-## 4. Testes unitários
+## 5. Testes unitários
 
 Os testes unitários devem ser mantidos em *PT-BR*, garantindo que o nome do teste seja auto explicativo evitando obviedades.
 
@@ -213,5 +221,4 @@ public void buscarMunicipiosPorEstadoTeste() {
 	    .extracting(MunicipioDto::getNom)
 	    .containsOnly(nomeExpected);
 }
-
 ```
