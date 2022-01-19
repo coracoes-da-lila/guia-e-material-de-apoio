@@ -8,7 +8,7 @@ Código da tarefa + / + nome-do-card
 US0xx/nome-do-card
 ```
 
-### Exemplos
+**Exemplo**
 
 ```
 US028/websocket-controller-service-model-sala
@@ -31,9 +31,9 @@ Database: coracoes_da_lila
 
 ## 3. Padrões de escrita de código
 
-Apenas os termos relacionados ao negócio devem ser mantidos em *PT-BR, sem abreviações.* Verbos e demais termos não relacionados ao negócio, devem ser mantidos em *EN-US*.
+- Apenas os termos relacionados ao negócio devem ser mantidos em *PT-BR, sem abreviações.* Verbos e demais termos não relacionados ao negócio, devem ser mantidos em *EN-US*.
 
-### Exemplos
+**Exemplo**
 
 ```Java
 ...
@@ -48,9 +48,9 @@ public void audit(final User user) {
 ```
 <br>
 
-Usar Optionals até a camada de controllers
+- Usar Optionals até a camada de controllers
 
-### Exemplo
+**Exemplo**
 
 ```Java
 
@@ -74,7 +74,7 @@ Usar Optionals até a camada de controllers
     }
 ```
 
-Usar @NonNull ao invés de usar dentro do @Column a propriedade nullable = false
+- Usar @NonNull ao invés de usar dentro do @Column a propriedade nullable = false
 
 
 
