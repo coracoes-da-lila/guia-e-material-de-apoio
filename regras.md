@@ -1,6 +1,9 @@
 # Guia de Regras para implementação - Corações da Lila
 
 ## 1. Comprar 1 carta
+        link da api: jogada/comprarcarta
+
+
 O jogador compra uma carta se possuir corações suficientes para comprá-la.
 
    Se a carta tiver bônus o jogador rola um dado e recebe de recompensa o resultado do respectivo bônus.
@@ -31,7 +34,7 @@ O jogador compra uma carta se possuir corações suficientes para comprá-la.
 
     - verifica se o jogador possui 8 pontos. (se possuir a sala deve alterar seu status para ULTIMA_RODADA).
     - verifica se o próximo jogador é quem começou o jogo (jogador que iniciou a sala) e se a sala está na ULTIMA_RODADA para finalizar o jogo.
-    - Se o jogo deve ser finalizado o status da sala deve ser alterado para FINALIZADO.
+    - Se o jogo deve ser [finalizado](#finalizar-o-jogo) o status da sala deve ser alterado para FINALIZADO.
     
 7. Back atualiza a sala no banco.
 
@@ -45,6 +48,8 @@ O jogador compra uma carta se possuir corações suficientes para comprá-la.
 12. Se não estiver finalizado o front verifica quem é o jogador com JOGANDO e libera a jogada para ele.
 
 ## 2. Comprar 1 carta Objetivo
+        link da api: jogada/comprarobjetivo
+
 O jogador compra uma carta objetivo se possuir 1 coração de qualquer tipo.
 
 - - -
@@ -75,6 +80,7 @@ O jogador compra uma carta objetivo se possuir 1 coração de qualquer tipo.
 
 
 ## 3. Comprar corações
+
 O jogador pode optar por comprar 2 corações pequenos ou 1 coração grande se ele tiver menos de 5 corações de qualquer tipo.
 
 ---
@@ -82,6 +88,8 @@ O jogador pode optar por comprar 2 corações pequenos ou 1 coração grande se 
 1. O front habilita os corações para comprar se o jogador do turno tiver menos de 5 corações de qualquer tipo.
 
 ### 3.1 Comprar 1 coração grande
+        link da api: jogada/comprarcoracaogrande
+
 2. O jogador clica com o mouse no coração grande.
 
 3. O front adiciona 1 coração grande para o jogador.
@@ -107,6 +115,7 @@ O jogador pode optar por comprar 2 corações pequenos ou 1 coração grande se 
 
 
 ### 3.2 Comprar 2 corações pequenos
+        link da api: jogada/comprarcoracaopequeno
 2. O jogador clica no icone de corações pequenos.
 
 3. O front adiciona 2 corações pequenos para o jogador.
@@ -130,3 +139,30 @@ O jogador pode optar por comprar 2 corações pequenos ou 1 coração grande se 
 12. Se não estiver finalizado o front verifica quem é o jogador com JOGANDO e libera a jogada para ele.
 
 ## Finalizar o jogo
+Quando alguém atingir 8 pontos de cartas, as jogadoras que faltam para completar o turno jogam mais uma vez. 
+
+Os pontos dos objetivos são contados após o encerramento.
+
+Após a contagem de pontos dos objetivos, o jogador com mais pontos é o vencedor.
+
+- - -*
+## Back End
+1. Verifica se a sala está com o status ULTIMA_RODADA.
+2. Verifica se o próximo jogador é quem iniciou o jogo(o criador da sala).
+
+3. ***Contabiliza os pontos da carta de objetivo***
+    
+4. Altera o status do jogo para FINALIZADO.
+
+## Front End
+1. O front verifica se o status do jogo é FINALIZADO
+
+2. O front mostra um ranking com as pontuações dos jogadores (da maior para a menor).
+
+Exemplo: 
+```
+    Placar final:
+    Lila: 23
+    José: 20
+    ...
+```
