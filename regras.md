@@ -60,15 +60,73 @@ O jogador compra uma carta objetivo se possuir 1 coração de qualquer tipo.
 5. O back valida a jogada:
     - Verifica qual jogador tem o status JOGANDO.
     - Verifica se o jogador possui corações suficientes para comprar a carta objetivo.
+    - Remove o numero de corações referente a compra de objetivos (priorizando os corações pequenos)
     - Altera o status do jogador para ESPERANDO e ja atualiza o próximo jogador como JOGANDO.
-    
+
+6. Altera a informação da sala no banco.
+
+7. O back envia para o front a sala alterada através do websocket.
+
+8. O front atualiza o status da sala para todos.
+
+9. O front verifica se o jogo está FINALIZADO (como descrito [aqui](#finalizar-o-jogo))
+
+10. Se não estiver finalizado o front verifica quem é o jogador com JOGANDO e libera a jogada para ele.
 
 
 ## 3. Comprar corações
+O jogador pode optar por comprar 2 corações pequenos ou 1 coração grande se ele tiver menos de 5 corações de qualquer tipo.
+
+---
+
+1. O front habilita os corações para comprar se o jogador do turno tiver menos de 5 corações de qualquer tipo.
 
 ### 3.1 Comprar 1 coração grande
+2. O jogador clica com o mouse no coração grande.
+
+3. O front adiciona 1 coração grande para o jogador.
+
+4. O front atualiza a sala com as alterações do jogador.
+
+5. O front envia a sala alterada para o back através da requisição http na rota referente à jogada.
+
+6. O back recebe o status da sala.
+
+7. O back salva as alterações.
+
+8. O back envia a sala salva para o front através do websocket.
+
+9. O front recebe a sala salva.
+
+10. O front atualiza o status da sala para todos.
+
+11. O front verifica se o jogo está FINALIZADO (como descrito [aqui](#finalizar-o-jogo))
+
+12. Se não estiver finalizado o front verifica quem é o jogador com JOGANDO e libera a jogada para ele.
+
+
 
 ### 3.2 Comprar 2 corações pequenos
+2. O jogador clica no icone de corações pequenos.
 
+3. O front adiciona 2 corações pequenos para o jogador.
+
+4. O front atualiza a sala com as alterações do jogador.
+
+5. O front envia a sala alterada para o back através da requisição http na rota referente à jogada.
+
+6. O back recebe o status da sala.
+
+7. O back salva as alterações.
+
+8. O back envia a sala salva para o front através do websocket.
+
+9. O front recebe a sala salva.
+
+10. O front atualiza o status da sala para todos.
+
+11. O front verifica se o jogo está FINALIZADO (como descrito [aqui](#finalizar-o-jogo))
+
+12. Se não estiver finalizado o front verifica quem é o jogador com JOGANDO e libera a jogada para ele.
 
 ## Finalizar o jogo
