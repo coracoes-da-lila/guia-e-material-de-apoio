@@ -145,7 +145,7 @@ Os pontos dos objetivos são contados após o encerramento.
 
 Após a contagem de pontos dos objetivos, o jogador com mais pontos é o vencedor.
 
-- - -*
+- - -
 ## Back End
 1. Verifica se a sala está com o status ULTIMA_RODADA.
 2. Verifica se o próximo jogador é quem iniciou o jogo(o criador da sala).
